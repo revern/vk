@@ -1,0 +1,39 @@
+ext {
+    versions = [
+            BUILD_TOOLS: '26.0.0',
+            MIN_SDK    : 16,
+            TARGET_SDK : 26,
+            SUPPORT    : '25.3.1',
+            OK_HTTP    : '3.4.1',
+            RETROFIT   : '2.0.2'
+    ]
+
+    support = [
+            appcompatV7 : "com.android.support:appcompat-v7:$versions.SUPPORT",
+            recyclerView: "com.android.support:recyclerview-v7:$versions.SUPPORT",
+            design      : "com.android.support:design:$versions.SUPPORT",
+            cardView    : "com.android.support:cardview-v7:$versions.SUPPORT"
+    ]
+
+    rxJava = [
+            rxJava   : 'io.reactivex:rxjava:1.1.6',
+            rxAndroid: 'io.reactivex:rxandroid:1.2.1'
+    ]
+
+    okHttp = [
+            logger: "com.squareup.okhttp3:logging-interceptor:$versions.OK_HTTP",
+            self  : "com.squareup.okhttp3:okhttp:$versions.OK_HTTP"
+    ]
+
+    retrofit = [
+            retrofit     : "com.squareup.retrofit2:retrofit:$versions.RETROFIT",
+            rxAdapter    : "com.squareup.retrofit2:adapter-rxjava:$versions.RETROFIT",
+            gsonConverter: "com.squareup.retrofit2:converter-gson:$versions.RETROFIT"
+    ]
+
+    supportLibs = support.values()
+    rxJavaLibs = rxJava.values()
+    okHttpLibs = okHttp.values()
+    retrofitLibs = retrofit.values()
+
+}

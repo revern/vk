@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
+apply from: '../deps.gradle'
+
+android {
+    compileSdkVersion versions.TARGET_SDK
+    buildToolsVersion versions.BUILD_TOOLS
+
+    defaultConfig {
+        applicationId "com.example.revern.vkontaktetest"
+        minSdkVersion versions.MIN_SDK
+        targetSdkVersion versions.TARGET_SDK
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "API_BASE_URL", "\"https://api.vk.com\""
+        buildConfigField "String", "CLIENT_ID", "\"6149507\""
+        buildConfigField "String", "API_VERSION", "\"5.67\""
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile supportLibs
+    compile rxJavaLibs
+    compile retrofitLibs
+    compile okHttpLibs
+
+    provided 'org.jetbrains:annotations:13.0'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
+
+    //Dagger
+    compile 'com.google.dagger:dagger:2.5'
+    apt "com.google.dagger:dagger-compiler:2.5"
+
+    //ButterKnife
+    compile 'com.jakewharton:butterknife:7.0.0'
+
+    //Stetho
+    compile 'com.facebook.stetho:stetho:1.4.2'
+    compile 'com.facebook.stetho:stetho-okhttp3:1.4.2'
+    compile 'com.facebook.stetho:stetho-urlconnection:1.4.2'
+
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+}
