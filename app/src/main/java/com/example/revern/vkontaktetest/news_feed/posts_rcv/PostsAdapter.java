@@ -24,4 +24,8 @@ public class PostsAdapter extends BaseAdapter<Post, PostHolder> {
         super(items, func, onItemClickListener);
     }
 
+    @Override public PostHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        return super.onCreateViewHolder(parent, viewType);
+    }
 }

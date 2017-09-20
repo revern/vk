@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="gray">#FF888888</color>
     <color name="lightGray">#FFAAAAAA</color>
+    <color name="placeholder_bg">#FFAAAAFF</color>
 </resources>

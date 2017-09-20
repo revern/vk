@@ -9,7 +9,7 @@ import java.util.Collection;
  * Created by Revern on 24.07.2017.
  */
 
-public class StringUtils {
+public class Strings {
 
     public static boolean isEmpty(@Nullable String string) {
         return string == null || string.length() == 0;

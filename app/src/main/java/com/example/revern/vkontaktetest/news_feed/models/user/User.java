@@ -1,5 +1,8 @@
 package com.example.revern.vkontaktetest.news_feed.models.user;
 
+import android.support.annotation.NonNull;
+
+import com.example.revern.vkontaktetest.news_feed.models.Poster;
 import com.example.revern.vkontaktetest.news_feed.models.base.BoolInt;
 import com.google.gson.annotations.SerializedName;
 
@@ -7,19 +10,15 @@ import com.google.gson.annotations.SerializedName;
  * Created by Revern on 20.08.2017.
  */
 
-public class User {
+public class User extends Poster {
 
-    @SerializedName("id") private          String  id;
     @SerializedName("first_name") private  String  firstName;
     @SerializedName("second_name") private String  secondName;
     @SerializedName("sex") private         Sex     sex;
-    @SerializedName("screen_name") private String  screenName;
-    @SerializedName("photo_50") private    String  photo50;
-    @SerializedName("photo_100") private   String  photo100;
     @SerializedName("online") private      BoolInt online;
 
-    public String getId() {
-        return id;
+    @NonNull @Override public String getDisplayName() {
+        return (firstName == null ? "" : firstName) + " " + (secondName == null ? "" : secondName);
     }
 
     public String getFirstName() {
@@ -32,18 +31,6 @@ public class User {
 
     public Sex getSex() {
         return sex;
-    }
-
-    public String getScreenName() {
-        return screenName;
-    }
-
-    public String getPhoto50() {
-        return photo50;
-    }
-
-    public String getPhoto100() {
-        return photo100;
     }
 
     public BoolInt getOnline() {

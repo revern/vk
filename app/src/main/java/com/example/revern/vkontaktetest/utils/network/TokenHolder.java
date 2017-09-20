@@ -2,7 +2,7 @@ package com.example.revern.vkontaktetest.utils.network;
 
 import android.support.annotation.NonNull;
 
-import com.example.revern.vkontaktetest.utils.StringUtils;
+import com.example.revern.vkontaktetest.utils.Strings;
 import com.example.revern.vkontaktetest.utils.storage.IStorage;
 
 /**
@@ -39,7 +39,7 @@ public class TokenHolder {
     }
 
     public boolean isUserAuthorized() {
-        return !StringUtils.isEmpty(getToken());
+        return !Strings.isEmpty(getToken());
     }
 
 }

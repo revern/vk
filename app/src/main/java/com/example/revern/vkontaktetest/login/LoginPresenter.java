@@ -3,8 +3,7 @@ package com.example.revern.vkontaktetest.login;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.example.revern.vkontaktetest.UserInteractor;
-import com.example.revern.vkontaktetest.utils.UriUtils;
+import com.example.revern.vkontaktetest.utils.Uris;
 import com.example.revern.vkontaktetest.utils.network.TokenHolder;
 import com.example.revern.vkontaktetest.utils.ui.BasePresenter;
 
@@ -33,8 +32,8 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     }
 
     private void saveToken(@NonNull String responseUrl) {
-        String userId = UriUtils.getParamValueFromUrl(responseUrl, "user_id");
-        String token = UriUtils.getParamValueFromUrl(responseUrl, "access_token");
+        String userId = Uris.getParamValueFromUrl(responseUrl, "user_id");
+        String token = Uris.getParamValueFromUrl(responseUrl, "access_token");
         tokenHolder.saveSession(userId, token);
 
         view.showNewsFeed();

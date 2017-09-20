@@ -1,5 +1,8 @@
 package com.example.revern.vkontaktetest.news_feed.models.group;
 
+import android.support.annotation.NonNull;
+
+import com.example.revern.vkontaktetest.news_feed.models.Poster;
 import com.example.revern.vkontaktetest.news_feed.models.base.BoolInt;
 import com.google.gson.annotations.SerializedName;
 
@@ -7,18 +10,18 @@ import com.google.gson.annotations.SerializedName;
  * Created by Revern on 20.08.2017.
  */
 
-public class Group {
+public class Group extends Poster {
 
-    @SerializedName("id") private          int           id;
-    @SerializedName("name") private        String        name;
-    @SerializedName("screen_name") private String        screenName;
-    @SerializedName("is_closed") private   GroupIsClosed isClosed;
-    @SerializedName("type") private        GroupType     type;
-    @SerializedName("is_admin") private    BoolInt       isAdmin;
-    @SerializedName("is_member") private   BoolInt       isMember;
-    @SerializedName("photo_50") private    String        photo50;
-    @SerializedName("photo_100") private   String        photo100;
-    @SerializedName("photo_200") private   String        photo200;
+    @SerializedName("name") private      String        name;
+    @SerializedName("is_closed") private GroupIsClosed isClosed;
+    @SerializedName("type") private      GroupType     type;
+    @SerializedName("is_admin") private  BoolInt       isAdmin;
+    @SerializedName("is_member") private BoolInt       isMember;
+    @SerializedName("photo_200") private String        photo200;
+
+    @NonNull @Override public String getDisplayName() {
+        return name == null ? "" : name;
+    }
 
     public int getId() {
         return id;

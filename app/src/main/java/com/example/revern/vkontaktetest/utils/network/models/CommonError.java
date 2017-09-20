@@ -1,6 +1,6 @@
 package com.example.revern.vkontaktetest.utils.network.models;
 
-import com.example.revern.vkontaktetest.utils.StringUtils;
+import com.example.revern.vkontaktetest.utils.Strings;
 
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,7 @@ public class CommonError {
         String message = error.error == null ? "" : (error.error + '\n');
         if (error.validations != null) {
             for (String key : error.validations.keySet()) {
-                message += key + " " + StringUtils.listToString(error.validations.get(key)) + '\n';
+                message += key + " " + Strings.listToString(error.validations.get(key)) + '\n';
             }
         }
         return message;
