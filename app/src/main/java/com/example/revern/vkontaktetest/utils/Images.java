@@ -25,7 +25,7 @@ import java.util.List;
 
 public class Images {
 
-    public static void draw(@Nullable ImageView imageView, @Nullable String uri) {
+    public static void drawCircle(@Nullable ImageView imageView, @Nullable String uri) {
         if (imageView == null || uri == null) return;
 
         Glide.with(imageView.getContext())
@@ -48,7 +48,9 @@ public class Images {
                                     attachment.getPhoto().getPhoto75() != null ? attachment.getPhoto().getPhoto75()
                                         : null
                         : null;
-                    Images.drawFullWidth(imageView, photoUri);
+                    int width = attachment.getPhoto().getWidth();
+                    int height = attachment.getPhoto().getHeight();
+                    Images.drawFullWidth(imageView, photoUri, width, height);
                     return;
                 }
             }
@@ -56,7 +58,8 @@ public class Images {
         imageView.setVisibility(View.GONE);
     }
 
-    public static void drawFullWidth(@Nullable ImageView imageView, @Nullable String uri) {
+    public static void drawFullWidth(@Nullable ImageView imageView, @Nullable String uri,
+                                     int width, int height) {
         if (imageView == null) return;
 
         if (uri == null) {
@@ -66,21 +69,29 @@ public class Images {
 
         imageView.setVisibility(View.VISIBLE);
 
-        int width = imageView.getContext().getResources().getDisplayMetrics().widthPixels;
+        int finalWidth = imageView.getContext().getResources().getDisplayMetrics().widthPixels;
+        int finalHeight = height * finalWidth / width;
+
+        imageView.getLayoutParams().width = finalWidth;
+        imageView.getLayoutParams().height = finalHeight;
+
         Glide.with(imageView.getContext())
-            .asBitmap()
+//            .asBitmap()
             .load(uri)
             .apply(new RequestOptions()
-                .placeholder(new ColorDrawable(Color.LTGRAY))
-                .centerCrop())
-            .into(new SimpleTarget<Bitmap>() {
-                @Override
-                public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
-                    imageView.getLayoutParams().width = width;
-                    imageView.getLayoutParams().height = resource.getHeight() * width / resource.getWidth();
-                    imageView.setImageBitmap(resource);
-                }
-            });
+                .override(finalWidth, finalHeight)
+                .placeholder(R.drawable.placeholder)
+                .centerCrop()
+                .dontAnimate())
+            .into(imageView);
+//            .into(new SimpleTarget<Bitmap>() {
+//                @Override
+//                public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
+//                    imageView.getLayoutParams().width = width;
+//                    imageView.getLayoutParams().height = resource.getHeight() * width / resource.getWidth();
+//                    imageView.setImageBitmap(resource);
+//                }
+//            });
     }
 
 }

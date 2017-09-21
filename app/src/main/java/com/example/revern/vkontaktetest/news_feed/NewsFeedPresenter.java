@@ -34,7 +34,7 @@ public class NewsFeedPresenter extends BasePresenter<NewsFeedView> {
     }
 
     public void refreshNewsFeed() {
-        userInteractor.getNewsFeed(100, null)
+        userInteractor.getNewsFeed(100)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(response -> {

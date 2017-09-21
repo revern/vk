@@ -89,7 +89,7 @@ public class PostHolder extends BaseHolder<Post> {
             uiPoster.setVisibility(View.VISIBLE);
             uiPosterName.setText(poster.getDisplayName());
             uiPostDate.setText(Dates.getFormattedDate(post.getDate()));
-            Images.draw(uiPosterAvatar, poster.getPhoto100());
+            Images.drawCircle(uiPosterAvatar, poster.getPhoto100());
         } else {
             uiPoster.setVisibility(View.GONE);
         }
@@ -116,7 +116,7 @@ public class PostHolder extends BaseHolder<Post> {
             Poster poster = findPoster(post.getSourceId() < 0 ? groups : users, primaryPost.getOwnerId());
             if (poster != null) {
                 uiOriginalPostAuthor.setVisibility(View.VISIBLE);
-                Images.draw(uiOriginalPostAuthorAvatar, poster.getPhoto100());
+                Images.drawCircle(uiOriginalPostAuthorAvatar, poster.getPhoto100());
                 uiOriginalPostAuthorName.setText(poster.getDisplayName());
                 uiOriginalPostDate.setText(Dates.getFormattedDate(primaryPost.getDate()));
             } else {

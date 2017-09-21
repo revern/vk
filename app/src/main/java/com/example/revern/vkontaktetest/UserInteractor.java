@@ -41,9 +41,11 @@ public class UserInteractor {
     }
 
     public Observable<NewsFeedResponse> getNewsFeed(int count, @Nullable String startFrom) {
-        if (getToken() == null) return null;
-
         return api.getNewsFeed(getToken(), "post", count, startFrom, BuildConfig.API_VERSION);
+    }
+
+    public Observable<NewsFeedResponse> getNewsFeed(int count) {
+        return getNewsFeed(count, null);
     }
 
     public void logout() {

@@ -20,11 +20,11 @@ public interface Api {
     String METHOD   = "/method/";
 
     @GET(BASE_URL + METHOD + "newsfeed.get") Observable<NewsFeedResponse> getNewsFeed(
-        @Query("access_token") @NonNull String token,
+        @Query("access_token") @Nullable String token,
         @Query("filters") @Nullable String filters,
         @Query("count") int count,
         @Query("start_from") @Nullable String startFrom,
-        @Query("v") @NonNull String version
+        @Query("v") @Nullable String version
     );
 
 }

@@ -75,15 +75,6 @@ public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements
 
     @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
 //        presenter.refreshNewsFeed();
-        double eve = 1;
-        eve-=0.5;
-        eve=eve-(eve*0.3);
-        eve=eve-(eve*0.3);
-        eve=eve-(eve*0.3);
-        eve=eve-(eve*0.3);
-        eve=eve-(eve*0.3);
-        eve=eve-(eve*0.3);
-        Log.d("eve_eve", " : "+(1D-eve));
         return super.onKeyDown(keyCode, event);
     }
 }
