@@ -13,9 +13,10 @@ import java.util.List;
 
 public class NewsFeed {
 
-    @SerializedName("items") private    List<Post>  posts;
-    @SerializedName("profiles") private List<User>  profiles;
-    @SerializedName("groups") private   List<Group> groups;
+    @SerializedName("items") private     List<Post>  posts;
+    @SerializedName("profiles") private  List<User>  profiles;
+    @SerializedName("groups") private    List<Group> groups;
+    @SerializedName("next_from") private String      nextFrom;
 
     public List<Post> getPosts() {
         return posts;
@@ -29,4 +30,7 @@ public class NewsFeed {
         return groups;
     }
 
+    public String getNextFrom() {
+        return nextFrom;
+    }
 }
