@@ -102,4 +102,10 @@ public class NewsFeedPresenter extends BasePresenter<NewsFeedView> {
         return groups;
     }
 
+    public void logout() {
+        userInteractor.logout();
+        if (view != null) {
+            view.showLogin();
+        }
+    }
 }

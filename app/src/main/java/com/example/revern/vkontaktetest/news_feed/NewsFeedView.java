@@ -16,4 +16,7 @@ public interface NewsFeedView extends BaseView {
     void refreshNews(@NonNull List<Post> posts);
 
     void addNews(@NonNull List<Post> posts);
+
+    void showLogin();
+
 }

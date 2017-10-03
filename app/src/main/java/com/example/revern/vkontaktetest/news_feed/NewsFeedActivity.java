@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.revern.vkontaktetest.Navigator;
 import com.example.revern.vkontaktetest.R;
@@ -38,7 +40,7 @@ public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         Injector.inject(this);
-        if (!presenter.isAuthorized()) Navigator.showLoginActivity(this);
+        if (!presenter.isAuthorized()) showLogin();
 
         super.onCreate(savedInstanceState);
 
@@ -49,6 +51,22 @@ public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements
             presenter.refreshNewsFeed();
         }
 
+    }
+
+    @Override public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_news_feed, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                presenter.logout();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initSwipeRefresh() {
@@ -74,8 +92,8 @@ public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements
             @Override public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
 
-                if(dy > 0 && !isLoading &&
-                    linearLayoutManager.findFirstVisibleItemPosition()+20 > adapter.getItemCount()) {
+                if (dy > 0 && !isLoading &&
+                    linearLayoutManager.findFirstVisibleItemPosition() + 20 > adapter.getItemCount()) {
                     isLoading = true;
                     presenter.loadMoreNews();
                 }
@@ -96,6 +114,10 @@ public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements
     @Override public void addNews(@NonNull List<Post> posts) {
         isLoading = false;
         adapter.addItems(posts);
+    }
+
+    @Override public void showLogin() {
+        Navigator.showLoginActivity(this);
     }
 
 }

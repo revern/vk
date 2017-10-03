@@ -2,6 +2,9 @@ package com.example.revern.vkontaktetest.login;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -64,6 +67,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     }
 
     @Override public void showNewsFeed() {
+        clearWebViewCache();
         Navigator.showNewsFeed(this);
+    }
+
+    private void clearWebViewCache() {
+        CookieSyncManager.createInstance(this);
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.removeAllCookie();
     }
 }

@@ -27,6 +27,8 @@ public class LoginPresenter extends BasePresenter<LoginView> {
             responseUrl.contains(PARAM_USER_ID) &&
             responseUrl.contains(PARAM_ACCESS_TOKEN)) {
             saveToken(responseUrl);
+
+            return true;
         }
         return false;
     }
@@ -36,7 +38,9 @@ public class LoginPresenter extends BasePresenter<LoginView> {
         String token = Uris.getParamValueFromUrl(responseUrl, "access_token");
         tokenHolder.saveSession(userId, token);
 
-        view.showNewsFeed();
+        if(view != null) {
+            view.showNewsFeed();
+        }
     }
 
 }
