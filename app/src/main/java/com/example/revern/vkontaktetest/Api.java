@@ -16,6 +16,7 @@ import static com.example.revern.vkontaktetest.Api.METHOD;
  */
 
 public interface Api {
+
     String BASE_URL = BuildConfig.API_BASE_URL;
     String METHOD   = "/method/";
 

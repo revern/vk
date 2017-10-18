@@ -1,5 +1,6 @@
 package com.example.revern.vkontaktetest.news_feed.models.post;
 
+import com.example.revern.vkontaktetest.news_feed.models.base.ViewsInfo;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class Wallpost {
     @SerializedName("from_id") private     int                      fromId;
     @SerializedName("owner_id") private    int                      ownerId;
     @SerializedName("date") private        int                      date;
-    @SerializedName("views") private       Views                    views;
+    @SerializedName("views") private       ViewsInfo                views;
     @SerializedName("text") private        String                   text;
     @SerializedName("signer_id") private   int                      signerId;
     @SerializedName("attachments") private List<WallpostAttachment> attachments;
@@ -35,7 +36,7 @@ public class Wallpost {
         return date;
     }
 
-    public Views getViews() {
+    public ViewsInfo getViews() {
         return views;
     }
 
@@ -50,4 +51,5 @@ public class Wallpost {
     public List<WallpostAttachment> getAttachments() {
         return attachments;
     }
+
 }

@@ -3,6 +3,7 @@ package com.example.revern.vkontaktetest.news_feed.models.post;
 import com.example.revern.vkontaktetest.news_feed.models.base.CommentsInfo;
 import com.example.revern.vkontaktetest.news_feed.models.base.LikesInfo;
 import com.example.revern.vkontaktetest.news_feed.models.base.RepostsInfo;
+import com.example.revern.vkontaktetest.news_feed.models.base.ViewsInfo;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class Post {
     @SerializedName("comments") private     CommentsInfo             comments;
     @SerializedName("likes") private        LikesInfo                likes;
     @SerializedName("reposts") private      RepostsInfo              reposts;
+    @SerializedName("views") private        ViewsInfo                views;
 
     public int getPostId() {
         return postId;
@@ -57,6 +59,10 @@ public class Post {
 
     public RepostsInfo getReposts() {
         return reposts;
+    }
+
+    public ViewsInfo getViews() {
+        return views;
     }
 
 }

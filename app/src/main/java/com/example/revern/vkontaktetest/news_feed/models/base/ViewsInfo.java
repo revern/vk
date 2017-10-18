@@ -1,12 +1,12 @@
-package com.example.revern.vkontaktetest.news_feed.models.post;
+package com.example.revern.vkontaktetest.news_feed.models.base;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Revern on 18.08.2017.
+ * Created by Revern on 15.10.2017.
  */
 
-public class Views {
+public class ViewsInfo {
 
     @SerializedName("count") private int count;
 

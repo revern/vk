@@ -54,6 +54,7 @@ public class PostHolder extends BaseHolder<Post> {
     @Bind(R.id.likes)    TextView uiLikes;
     @Bind(R.id.comments) TextView uiComments;
     @Bind(R.id.reposts)  TextView uiReposts;
+    @Bind(R.id.views)    TextView uiViews;
 
     public static Func1<ViewGroup, PostHolder> creator(@NonNull List<User> users,
                                                        @NonNull List<Group> groups) {
@@ -74,9 +75,10 @@ public class PostHolder extends BaseHolder<Post> {
         drawAuthorInfoIfExists(post);
 
         TextViews.setTextOrHide(uiText, post.getText());
-        TextViews.setTextOrHide(uiLikes, post.getLikes().getCount());
-        TextViews.setTextOrHide(uiComments, post.getComments().getCount());
-        TextViews.setTextOrHide(uiReposts, post.getReposts().getCount());
+        TextViews.setResponseText(uiLikes, post.getLikes().getCount());
+        TextViews.setResponseText(uiComments, post.getComments().getCount());
+        TextViews.setResponseText(uiReposts, post.getReposts().getCount());
+        TextViews.setResponseText(uiViews, post.getViews().getCount());
 
         Images.drawPostImage(uiPhoto, post.getAttachments());
 
