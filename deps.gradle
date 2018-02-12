@@ -1,11 +1,14 @@
 ext {
     versions = [
-            BUILD_TOOLS: '26.0.0',
-            MIN_SDK    : 16,
-            TARGET_SDK : 26,
-            SUPPORT    : '25.3.1',
-            OK_HTTP    : '3.4.1',
-            RETROFIT   : '2.0.2'
+            BUILD_TOOLS : '27.0.3',
+            MIN_SDK     : 16,
+            TARGET_SDK  : 27,
+            SUPPORT     : '27.0.2',
+            OK_HTTP     : '3.4.1',
+            RETROFIT    : '2.0.2',
+            DAGGER      : '2.5',
+            BUTTER_KNIFE: '8.8.1',
+            STETHO      : '1.5.0'
     ]
 
     support = [
@@ -31,9 +34,15 @@ ext {
             gsonConverter: "com.squareup.retrofit2:converter-gson:$versions.RETROFIT"
     ]
 
+    stetho = [
+            stetho       : "com.facebook.stetho:stetho:$versions.STETHO",
+            stetho_okhhtp: "com.facebook.stetho:stetho-okhttp3:$versions.STETHO"
+    ]
+
     supportLibs = support.values()
     rxJavaLibs = rxJava.values()
     okHttpLibs = okHttp.values()
     retrofitLibs = retrofit.values()
+    stethoLibs = stetho.values()
 
 }

@@ -3,7 +3,6 @@ package com.example.revern.vkontaktetest.utils.ui;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -15,7 +14,7 @@ import com.example.revern.vkontaktetest.utils.Keyboard;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -25,8 +24,8 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity
     implements BaseView {
 
-    @Inject protected   P       presenter;
-    @Bind(R.id.toolbar) Toolbar toolbar;
+    @Inject protected       P       presenter;
+    @BindView(R.id.toolbar) Toolbar toolbar;
 
     protected UiInfo uiInfo;
 

@@ -27,7 +27,6 @@ public class BaseAdapter<T, VH extends BaseHolder<T>> extends RecyclerView.Adapt
         this.items = items;
         this.func = func;
         this.onItemClickListener = onItemClickListener;
-        List<String> lista = new ArrayList<>();
         Log.d("base_adapter", "constructor");
     }
 
@@ -36,7 +35,7 @@ public class BaseAdapter<T, VH extends BaseHolder<T>> extends RecyclerView.Adapt
         VH holder = func.call(parent);
         holder.itemView.setOnClickListener(v -> {
             int position = holder.getAdapterPosition();
-            if(position != RecyclerView.NO_POSITION && onItemClickListener != null) {
+            if (position != RecyclerView.NO_POSITION && onItemClickListener != null) {
                 onItemClickListener.onItemClick(items.get(position));
             }
         });
@@ -44,7 +43,6 @@ public class BaseAdapter<T, VH extends BaseHolder<T>> extends RecyclerView.Adapt
     }
 
     @Override public void onBindViewHolder(VH holder, int position) {
-
         holder.bind(items.get(position));
     }
 
@@ -68,7 +66,7 @@ public class BaseAdapter<T, VH extends BaseHolder<T>> extends RecyclerView.Adapt
     }
 
     public void setItems(@NonNull List<T> items) {
-        this.items=items;
+        this.items = items;
         notifyDataSetChanged();
     }
 

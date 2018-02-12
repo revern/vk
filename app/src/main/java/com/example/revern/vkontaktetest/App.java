@@ -28,7 +28,6 @@ public class App extends Application {
 
     private void initDaggerComponents() {
         appComponent = createAppComponent();
-
         sessionComponent = appComponent.plus(new SessionModule());
     }
 
