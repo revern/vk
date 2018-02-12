@@ -23,7 +23,7 @@ import com.example.revern.vkontaktetest.utils.ui.rcv.BaseHolder;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import rx.functions.Func1;
 
 /**
@@ -35,26 +35,26 @@ public class PostHolder extends BaseHolder<Post> {
     @NonNull private List<User>  users;
     @NonNull private List<Group> groups;
 
-    @Bind(R.id.poster)        RelativeLayout uiPoster;
-    @Bind(R.id.poster_avatar) ImageView      uiPosterAvatar;
-    @Bind(R.id.poster_name)   TextView       uiPosterName;
-    @Bind(R.id.post_date)     TextView       uiPostDate;
+    @BindView(R.id.poster)    RelativeLayout uiPoster;
+    @BindView(R.id.poster_avatar) ImageView      uiPosterAvatar;
+    @BindView(R.id.poster_name)   TextView       uiPosterName;
+    @BindView(R.id.post_date)     TextView       uiPostDate;
 
-    @Bind(R.id.original_post_author)        RelativeLayout uiOriginalPostAuthor;
-    @Bind(R.id.original_post_author_avatar) ImageView      uiOriginalPostAuthorAvatar;
-    @Bind(R.id.original_post_author_name)   TextView       uiOriginalPostAuthorName;
-    @Bind(R.id.original_post_date)          TextView       uiOriginalPostDate;
+    @BindView(R.id.original_post_author)        RelativeLayout uiOriginalPostAuthor;
+    @BindView(R.id.original_post_author_avatar) ImageView      uiOriginalPostAuthorAvatar;
+    @BindView(R.id.original_post_author_name)   TextView       uiOriginalPostAuthorName;
+    @BindView(R.id.original_post_date)          TextView       uiOriginalPostDate;
 
-    @Bind(R.id.text)  TextView  uiText;
-    @Bind(R.id.photo) ImageView uiPhoto;
+    @BindView(R.id.text)  TextView  uiText;
+    @BindView(R.id.photo) ImageView uiPhoto;
 
-    @Bind(R.id.original_post_text)  TextView  uiOriginalPostText;
-    @Bind(R.id.original_post_photo) ImageView uiOriginalPostPhoto;
+    @BindView(R.id.original_post_text)  TextView  uiOriginalPostText;
+    @BindView(R.id.original_post_photo) ImageView uiOriginalPostPhoto;
 
-    @Bind(R.id.likes)    TextView uiLikes;
-    @Bind(R.id.comments) TextView uiComments;
-    @Bind(R.id.reposts)  TextView uiReposts;
-    @Bind(R.id.views)    TextView uiViews;
+    @BindView(R.id.likes)    TextView uiLikes;
+    @BindView(R.id.comments) TextView uiComments;
+    @BindView(R.id.reposts)  TextView uiReposts;
+    @BindView(R.id.views)    TextView uiViews;
 
     public static Func1<ViewGroup, PostHolder> creator(@NonNull List<User> users,
                                                        @NonNull List<Group> groups) {

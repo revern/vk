@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -17,7 +16,8 @@ import com.example.revern.vkontaktetest.utils.di.Injector;
 import com.example.revern.vkontaktetest.utils.ui.BaseActivity;
 import com.example.revern.vkontaktetest.utils.ui.UiInfo;
 
-import butterknife.Bind;
+import butterknife.BindView;
+
 
 /**
  * Created by Revern on 15.08.2017.
@@ -38,7 +38,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         "&response_type=" + "token" +
         "&v=" + BuildConfig.API_VERSION;
 
-    @Bind(R.id.login_container) WebView uiLogin;
+    @BindView(R.id.login_container) WebView uiLogin;
 
     @NonNull @Override public UiInfo createUserInfo() {
         return new UiInfo(R.layout.activity_login)
@@ -76,4 +76,5 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.removeAllCookie();
     }
+
 }

@@ -11,9 +11,7 @@ import com.example.revern.vkontaktetest.utils.network.RxErrorHandlingCallAdapter
 import com.example.revern.vkontaktetest.utils.network.StringConverterFactory;
 import com.example.revern.vkontaktetest.utils.network.TokenHolder;
 import com.example.revern.vkontaktetest.utils.storage.IStorage;
-import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;

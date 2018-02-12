@@ -2,7 +2,6 @@ package com.example.revern.vkontaktetest.news_feed;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,7 +19,7 @@ import com.example.revern.vkontaktetest.utils.ui.UiInfo;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * Created by Revern on 17.08.2017.
@@ -28,8 +27,8 @@ import butterknife.Bind;
 
 public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements NewsFeedView {
 
-    @Bind(R.id.swipe_refresh_layout) SwipeRefreshLayout uiSwipeRefresh;
-    @Bind(R.id.posts_rcv)            RecyclerView       uiPosts;
+    @BindView(R.id.swipe_refresh_layout) SwipeRefreshLayout uiSwipeRefresh;
+    @BindView(R.id.posts_rcv)            RecyclerView       uiPosts;
 
     private PostsAdapter adapter;
 
