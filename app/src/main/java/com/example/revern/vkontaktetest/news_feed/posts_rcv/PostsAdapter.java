@@ -10,7 +10,7 @@ import com.example.revern.vkontaktetest.utils.ui.rcv.OnItemClickListener;
 
 import java.util.List;
 
-import rx.functions.Func1;
+import io.reactivex.functions.Function;
 
 /**
  * Created by Revern on 23.08.2017.
@@ -19,7 +19,7 @@ import rx.functions.Func1;
 public class PostsAdapter extends BaseAdapter<Post, PostHolder> {
 
     public PostsAdapter(@NonNull List<Post> items,
-                        @NonNull Func1<ViewGroup, PostHolder> func,
+                        @NonNull Function<ViewGroup, PostHolder> func,
                         @Nullable OnItemClickListener<Post> onItemClickListener) {
         super(items, func, onItemClickListener);
     }

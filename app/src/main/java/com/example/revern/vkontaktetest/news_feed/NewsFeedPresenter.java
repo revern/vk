@@ -13,10 +13,10 @@ import com.example.revern.vkontaktetest.utils.ui.BasePresenter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 
 /**
  * Created by Revern on 17.08.2017.

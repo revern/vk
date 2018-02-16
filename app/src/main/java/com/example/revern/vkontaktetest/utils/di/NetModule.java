@@ -7,7 +7,6 @@ import com.example.revern.vkontaktetest.Api;
 import com.example.revern.vkontaktetest.BuildConfig;
 import com.example.revern.vkontaktetest.UserInteractor;
 import com.example.revern.vkontaktetest.utils.StethoUtils;
-import com.example.revern.vkontaktetest.utils.network.RxErrorHandlingCallAdapterFactory;
 import com.example.revern.vkontaktetest.utils.network.StringConverterFactory;
 import com.example.revern.vkontaktetest.utils.network.TokenHolder;
 import com.example.revern.vkontaktetest.utils.storage.IStorage;
@@ -23,6 +22,7 @@ import dagger.Provides;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -76,7 +76,8 @@ public class NetModule {
         return new Retrofit.Builder()
             .client(httpClient)
             .baseUrl(baseUrl)
-            .addCallAdapterFactory(RxErrorHandlingCallAdapterFactory.create())
+//            .addCallAdapterFactory(RxErrorHandlingCallAdapterFactory.create()) //for rxjava 1
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(StringConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(mapper))
             .build()
@@ -84,7 +85,7 @@ public class NetModule {
     }
 
     @Provides @Singleton
-    public UserInteractor provideUsetInteractor(@NonNull IStorage storage, @NonNull Api api,
+    public UserInteractor provideUserInteractor(@NonNull IStorage storage, @NonNull Api api,
                                                 @NonNull TokenHolder tokenHolder) {
         return new UserInteractor(storage, api, tokenHolder);
     }

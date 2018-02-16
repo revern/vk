@@ -31,6 +31,7 @@ public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements
     @BindView(R.id.posts_rcv)            RecyclerView       uiPosts;
 
     private PostsAdapter adapter;
+    private boolean      isLoading;
 
     @NonNull @Override public UiInfo createUserInfo() {
         return new UiInfo(R.layout.activity_news_feed)
@@ -44,12 +45,11 @@ public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements
         super.onCreate(savedInstanceState);
 
         initPostsList();
-        initSwipeRefresh();
+        initPullToRefresh();
 
         if (savedInstanceState == null) {
             presenter.refreshNewsFeed();
         }
-
     }
 
     @Override public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,7 +68,7 @@ public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements
         return super.onOptionsItemSelected(item);
     }
 
-    private void initSwipeRefresh() {
+    private void initPullToRefresh() {
         uiSwipeRefresh.setColorSchemeResources(R.color.colorPrimary);
         uiSwipeRefresh.setRefreshing(false);
         uiSwipeRefresh.setOnRefreshListener(() -> {
@@ -76,8 +76,6 @@ public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements
             presenter.refreshNewsFeed();
         });
     }
-
-    private boolean isLoading;
 
     private void initPostsList() {
         adapter = new PostsAdapter(presenter.getPosts(),
@@ -101,7 +99,7 @@ public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements
     }
 
     @Override public void showError(Throwable error) {
-
+        //TODO show error dialog
     }
 
     @Override

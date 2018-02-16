@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Lists {
 
-    public static boolean isEmpty(@Nullable List list){
+    public static boolean isEmpty(@Nullable List list) {
         return list == null || list.isEmpty();
     }
 
@@ -21,6 +21,5 @@ public class Lists {
         }
         return list1;
     }
-
 
 }

@@ -14,6 +14,9 @@ import dagger.Subcomponent;
 @Singleton
 @Subcomponent(modules = {SessionModule.class})
 public interface SessionComponent {
+
     void inject(LoginActivity loginActivity);
+
     void inject(NewsFeedActivity newsFeedActivity);
+
 }

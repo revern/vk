@@ -11,6 +11,7 @@ import retrofit2.Converter;
 import retrofit2.Retrofit;
 
 public class StringConverterFactory extends Converter.Factory {
+
     private static final MediaType MEDIA_TYPE = MediaType.parse("text/plain");
 
     public static StringConverterFactory create() {

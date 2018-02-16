@@ -45,8 +45,7 @@ public class Images {
                         attachment.getPhoto().getPhoto807() != null ? attachment.getPhoto().getPhoto807() :
                             attachment.getPhoto().getPhoto604() != null ? attachment.getPhoto().getPhoto604() :
                                 attachment.getPhoto().getPhoto130() != null ? attachment.getPhoto().getPhoto130() :
-                                    attachment.getPhoto().getPhoto75() != null ? attachment.getPhoto().getPhoto75()
-                                        : null
+                                    attachment.getPhoto().getPhoto75()
                         : null;
                     int width = attachment.getPhoto().getWidth();
                     int height = attachment.getPhoto().getHeight();

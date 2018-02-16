@@ -1,15 +1,14 @@
 package com.example.revern.vkontaktetest;
 
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.example.revern.vkontaktetest.news_feed.models.NewsFeed;
 import com.example.revern.vkontaktetest.news_feed.models.NewsFeedResponse;
 import com.example.revern.vkontaktetest.utils.network.TokenHolder;
 import com.example.revern.vkontaktetest.utils.storage.IStorage;
 
-import rx.Observable;
+import io.reactivex.Flowable;
+
 
 /**
  * Created by Revern on 15.08.2017.
@@ -40,11 +39,11 @@ public class UserInteractor {
         return getToken() != null;
     }
 
-    public Observable<NewsFeedResponse> getNewsFeed(int count, @Nullable String startFrom) {
+    public Flowable<NewsFeedResponse> getNewsFeed(int count, @Nullable String startFrom) {
         return api.getNewsFeed(getToken(), "post", count, startFrom, BuildConfig.API_VERSION);
     }
 
-    public Observable<NewsFeedResponse> getNewsFeed(int count) {
+    public Flowable<NewsFeedResponse> getNewsFeed(int count) {
         return getNewsFeed(count, null);
     }
 

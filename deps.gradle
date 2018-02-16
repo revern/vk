@@ -5,7 +5,7 @@ ext {
             TARGET_SDK  : 27,
             SUPPORT     : '27.0.2',
             OK_HTTP     : '3.4.1',
-            RETROFIT    : '2.0.2',
+            RETROFIT    : '2.3.0',
             DAGGER      : '2.5',
             BUTTER_KNIFE: '8.8.1',
             STETHO      : '1.5.0'
@@ -19,8 +19,8 @@ ext {
     ]
 
     rxJava = [
-            rxJava   : 'io.reactivex:rxjava:1.1.6',
-            rxAndroid: 'io.reactivex:rxandroid:1.2.1'
+            rxJava   : 'io.reactivex.rxjava2:rxjava:2.1.9',
+            rxAndroid: 'io.reactivex.rxjava2:rxandroid:2.0.2'
     ]
 
     okHttp = [
@@ -30,7 +30,7 @@ ext {
 
     retrofit = [
             retrofit     : "com.squareup.retrofit2:retrofit:$versions.RETROFIT",
-            rxAdapter    : "com.squareup.retrofit2:adapter-rxjava:$versions.RETROFIT",
+            rxAdapter    : "com.squareup.retrofit2:adapter-rxjava2:$versions.RETROFIT",
             gsonConverter: "com.squareup.retrofit2:converter-gson:$versions.RETROFIT"
     ]
 

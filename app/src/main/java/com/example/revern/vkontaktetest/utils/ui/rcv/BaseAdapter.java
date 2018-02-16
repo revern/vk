@@ -3,13 +3,11 @@ package com.example.revern.vkontaktetest.utils.ui.rcv;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import rx.functions.Func1;
+import io.reactivex.functions.Function;
 
 /**
  * Created by Revern on 23.08.2017.
@@ -17,22 +15,25 @@ import rx.functions.Func1;
 
 public class BaseAdapter<T, VH extends BaseHolder<T>> extends RecyclerView.Adapter<VH> {
 
-    @NonNull private List<T>              items;
-    @NonNull private Func1<ViewGroup, VH> func;
+    @NonNull private List<T>                 items;
+    @NonNull private Function<ViewGroup, VH> func;
 
     @Nullable private OnItemClickListener<T> onItemClickListener;
 
-    public BaseAdapter(@NonNull List<T> items, @NonNull Func1<ViewGroup, VH> func,
+    public BaseAdapter(@NonNull List<T> items, @NonNull Function<ViewGroup, VH> func,
                        @Nullable OnItemClickListener<T> onItemClickListener) {
         this.items = items;
         this.func = func;
         this.onItemClickListener = onItemClickListener;
-        Log.d("base_adapter", "constructor");
     }
 
     @Override public VH onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.d("base_adapter", "onCreateViewHolder");
-        VH holder = func.call(parent);
+        VH holder;
+        try {
+            holder = func.apply(parent);
+        } catch (Exception e) {
+            return null; //TODO
+        }
         holder.itemView.setOnClickListener(v -> {
             int position = holder.getAdapterPosition();
             if (position != RecyclerView.NO_POSITION && onItemClickListener != null) {

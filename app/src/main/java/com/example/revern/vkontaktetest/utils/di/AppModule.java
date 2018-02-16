@@ -48,7 +48,7 @@ public class AppModule {
 
     @Provides @Singleton
     public IStorage provideStorage(@NonNull SharedPreferences sharedPreferences,
-                                                 @NonNull Gson mapper) {
+                                   @NonNull Gson mapper) {
         return new Storage(sharedPreferences, mapper);
     }
 

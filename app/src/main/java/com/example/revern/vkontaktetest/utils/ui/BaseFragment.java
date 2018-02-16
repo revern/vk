@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 public abstract class BaseFragment<P extends BasePresenter> extends Fragment implements BaseView {
 
     @Inject protected P presenter;
+
     @LayoutRes public abstract int getLayoutRes();
 
     @Override public void onCreate(@Nullable Bundle savedState) {

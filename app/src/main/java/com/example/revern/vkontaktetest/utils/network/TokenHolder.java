@@ -12,7 +12,7 @@ import com.example.revern.vkontaktetest.utils.storage.IStorage;
 public class TokenHolder {
 
     private static final String KEY_ACCESS_TOKEN = "access_token";
-    private static final String KEY_USER_ID = "user_id";
+    private static final String KEY_USER_ID      = "user_id";
 
     @NonNull private final IStorage storage;
 

@@ -24,7 +24,7 @@ import com.example.revern.vkontaktetest.utils.ui.rcv.BaseHolder;
 import java.util.List;
 
 import butterknife.BindView;
-import rx.functions.Func1;
+import io.reactivex.functions.Function;
 
 /**
  * Created by Revern on 23.08.2017.
@@ -35,7 +35,7 @@ public class PostHolder extends BaseHolder<Post> {
     @NonNull private List<User>  users;
     @NonNull private List<Group> groups;
 
-    @BindView(R.id.poster)    RelativeLayout uiPoster;
+    @BindView(R.id.poster)        RelativeLayout uiPoster;
     @BindView(R.id.poster_avatar) ImageView      uiPosterAvatar;
     @BindView(R.id.poster_name)   TextView       uiPosterName;
     @BindView(R.id.post_date)     TextView       uiPostDate;
@@ -56,14 +56,14 @@ public class PostHolder extends BaseHolder<Post> {
     @BindView(R.id.reposts)  TextView uiReposts;
     @BindView(R.id.views)    TextView uiViews;
 
-    public static Func1<ViewGroup, PostHolder> creator(@NonNull List<User> users,
-                                                       @NonNull List<Group> groups) {
+    public static Function<ViewGroup, PostHolder> creator(@NonNull List<User> users,
+                                                          @NonNull List<Group> groups) {
         return viewGroup -> new PostHolder(LayoutInflater.from(viewGroup.getContext())
             .inflate(R.layout.item_post, viewGroup, false), users, groups);
     }
 
-    public PostHolder(@NonNull View itemView, @NonNull List<User> users,
-                      @NonNull List<Group> groups) {
+    private PostHolder(@NonNull View itemView, @NonNull List<User> users,
+                       @NonNull List<Group> groups) {
         super(itemView);
         this.users = users;
         this.groups = groups;

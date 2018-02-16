@@ -38,7 +38,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
         String token = Uris.getParamValueFromUrl(responseUrl, "access_token");
         tokenHolder.saveSession(userId, token);
 
-        if(view != null) {
+        if (view != null) {
             view.showNewsFeed();
         }
     }

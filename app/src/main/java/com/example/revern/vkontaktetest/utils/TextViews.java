@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class TextViews {
 
-    public static void setResponseText(@Nullable TextView textView, @Nullable int number) {
+    public static void setResponseText(@Nullable TextView textView, int number) {
         if (textView == null) return;
 
         textView.setText(getResponseString(number));
