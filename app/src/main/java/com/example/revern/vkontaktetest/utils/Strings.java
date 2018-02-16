@@ -15,15 +15,17 @@ public class Strings {
         return string == null || string.length() == 0;
     }
 
-    @NonNull public static String listToString(@NonNull Collection<String> strings) {
-        String result = "";
+    @NonNull public static String listToString(@Nullable Collection<String> strings) {
+        if (strings == null) return "";
+
+        StringBuilder result = new StringBuilder();
         for (String string : strings) {
-            result += string + ", ";
+            result.append(string).append(", ");
         }
-        if (!result.isEmpty()) {
+        if (result.length() > 0) {
             return result.substring(0, result.length() - 2);
         } else {
-            return result;
+            return result.toString();
         }
     }
 
