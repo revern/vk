@@ -2,6 +2,7 @@ package com.example.revern.vkontaktetest.utils;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.view.View;
 import android.widget.TextView;
 
@@ -17,7 +18,7 @@ public class TextViews {
         textView.setText(getResponseString(number));
     }
 
-    @NonNull private static String getResponseString(int number) {
+    @NonNull @VisibleForTesting static String getResponseString(int number) {
         return number / 1000 > 0 ? number / 1000 + "K" : number + "";
     }
 

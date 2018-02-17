@@ -70,7 +70,6 @@ public class PostHolder extends BaseHolder<Post> {
     }
 
     @Override protected void bind(@NonNull Post post) {
-
         drawPosterInfo(post);
         drawAuthorInfoIfExists(post);
 
@@ -90,7 +89,7 @@ public class PostHolder extends BaseHolder<Post> {
         if (poster != null) {
             uiPoster.setVisibility(View.VISIBLE);
             uiPosterName.setText(poster.getDisplayName());
-            uiPostDate.setText(Dates.getFormattedDate(post.getDate()));
+            uiPostDate.setText(Dates.getFormattedDate(uiPostDate.getContext(), post.getDate()));
             Images.drawCircle(uiPosterAvatar, poster.getPhoto100());
         } else {
             uiPoster.setVisibility(View.GONE);
@@ -120,7 +119,7 @@ public class PostHolder extends BaseHolder<Post> {
                 uiOriginalPostAuthor.setVisibility(View.VISIBLE);
                 Images.drawCircle(uiOriginalPostAuthorAvatar, poster.getPhoto100());
                 uiOriginalPostAuthorName.setText(poster.getDisplayName());
-                uiOriginalPostDate.setText(Dates.getFormattedDate(primaryPost.getDate()));
+                uiOriginalPostDate.setText(Dates.getFormattedDate(uiOriginalPostDate.getContext(), primaryPost.getDate()));
             } else {
                 uiOriginalPostAuthor.setVisibility(View.GONE);
             }

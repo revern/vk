@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 
 public class Uris {
 
-    public static String getParamValueFromUrl(@NonNull String url, @NonNull String param) {
+    @NonNull public static String getParamValueFromUrl(@NonNull String url, @NonNull String param) {
         return url
             .replaceAll(".*" + param + "=", "")
             .replaceAll("&.*", "");

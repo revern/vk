@@ -10,13 +10,13 @@ public class CommonError {
     private Error error;
 
     public String getMessage() {
-        String message = error.error == null ? "" : (error.error + '\n');
+        StringBuilder message = new StringBuilder(error.error == null ? "" : (error.error + '\n'));
         if (error.validations != null) {
             for (String key : error.validations.keySet()) {
-                message += key + " " + Strings.listToString(error.validations.get(key)) + '\n';
+                message.append(key).append(" ").append(Strings.listToString(error.validations.get(key))).append('\n');
             }
         }
-        return message;
+        return message.toString();
     }
 
     public Map<String, List<String>> getValidations() {

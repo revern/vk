@@ -4,4 +4,11 @@
     <string name="title_login">Login</string>
     <string name="title_news_feed">News feed</string>
     <string name="logout">Logout</string>
+    <string name="date_just_now">just now</string>
+    <string name="date_seconds_ago">seconds ago</string>
+    <string name="date_minutes_ago">minutes ago</string>
+    <string name="date_hours_ago">hours ago</string>
+    <string name="date_tomorrow_at">tomorrow at</string>
+    <string name="date_at">at</string>
+
 </resources>
