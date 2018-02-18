@@ -3,6 +3,7 @@
 ### Api - https://api.vk.com
 
 ### Technologies:
+* Java
 * MVP
 * Dagger
 * Retrofit
