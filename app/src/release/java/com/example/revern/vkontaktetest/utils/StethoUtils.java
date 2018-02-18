@@ -3,6 +3,8 @@ package com.example.revern.vkontaktetest.utils;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import okhttp3.OkHttpClient;
+
 /**
  * Created by Revern on 22.08.2017.
  */

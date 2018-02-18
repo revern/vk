@@ -9,3 +9,4 @@ local.properties
 
 ### Android
 *.jks
+!/debug.jks
