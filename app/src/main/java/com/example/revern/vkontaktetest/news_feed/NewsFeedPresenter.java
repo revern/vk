@@ -2,7 +2,6 @@ package com.example.revern.vkontaktetest.news_feed;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 import com.example.revern.vkontaktetest.UserInteractor;
 import com.example.revern.vkontaktetest.news_feed.models.NewsFeed;
 import com.example.revern.vkontaktetest.news_feed.models.group.Group;
@@ -10,13 +9,10 @@ import com.example.revern.vkontaktetest.news_feed.models.post.Post;
 import com.example.revern.vkontaktetest.news_feed.models.user.User;
 import com.example.revern.vkontaktetest.utils.Lists;
 import com.example.revern.vkontaktetest.utils.ui.BasePresenter;
+import io.reactivex.disposables.Disposable;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class NewsFeedPresenter extends BasePresenter<NewsFeedView> {
 
@@ -50,26 +46,51 @@ public class NewsFeedPresenter extends BasePresenter<NewsFeedView> {
         }
     }
 
-    public void loadMoreNews() {
-        if (newsfeedDisposable == null) {
-            newsfeedDisposable = userInteractor.getNewsFeed(20, nextFrom)
-                .doAfterTerminate(() -> newsfeedDisposable = null)
-                .subscribe(response -> {
-                    addLists(response.getNewsFeed());
-                    List<Post> posts = response.getNewsFeed().getPosts();
-                    if (view != null && posts != null) {
-                        view.addNews(posts);
-                    }
-                }, error -> {
-                    if (view != null) {
-                        view.showError(error);
-                    }
-                });
+    public void tryPaginate(int currentPosition) {
+        if (currentPosition + 20 > posts.size()) {
+            loadMoreNews();
         }
     }
 
     public boolean isAuthorized() {
         return userInteractor.isAuthorized();
+    }
+
+    public void logout() {
+        userInteractor.logout();
+        if (view != null) {
+            view.showLogin();
+        }
+    }
+
+    @NonNull public List<Post> getPosts() {
+        return posts;
+    }
+
+    @NonNull public List<User> getUsers() {
+        return users;
+    }
+
+    @NonNull public List<Group> getGroups() {
+        return groups;
+    }
+
+    private void loadMoreNews() {
+        if (newsfeedDisposable == null) {
+            newsfeedDisposable = userInteractor.getNewsFeed(20, nextFrom)
+                    .doAfterTerminate(() -> newsfeedDisposable = null)
+                    .subscribe(response -> {
+                        addLists(response.getNewsFeed());
+                        List<Post> posts = response.getNewsFeed().getPosts();
+                        if (view != null && posts != null) {
+                            view.addNews(posts);
+                        }
+                    }, error -> {
+                        if (view != null) {
+                            view.showError(error);
+                        }
+                    });
+        }
     }
 
     private void refreshLists(@Nullable NewsFeed newsFeed) {
@@ -93,25 +114,6 @@ public class NewsFeedPresenter extends BasePresenter<NewsFeedView> {
             Lists.addList(users, newsFeed.getProfiles());
             Lists.addList(groups, newsFeed.getGroups());
             nextFrom = newsFeed.getNextFrom();
-        }
-    }
-
-    @NonNull public List<Post> getPosts() {
-        return posts;
-    }
-
-    @NonNull public List<User> getUsers() {
-        return users;
-    }
-
-    @NonNull public List<Group> getGroups() {
-        return groups;
-    }
-
-    public void logout() {
-        userInteractor.logout();
-        if (view != null) {
-            view.showLogin();
         }
     }
 

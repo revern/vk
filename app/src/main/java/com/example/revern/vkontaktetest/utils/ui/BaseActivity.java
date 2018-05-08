@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import android.widget.Toast;
 import com.example.revern.vkontaktetest.R;
 import com.example.revern.vkontaktetest.utils.Keyboard;
 
@@ -99,6 +100,10 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     @Override public void hideKeyboard() {
         Keyboard.hide(this);
+    }
+
+    @Override public void showError(Throwable error) {
+        Toast.makeText(this, error.getMessage(), Toast.LENGTH_LONG).show();
     }
 
 }

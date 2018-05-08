@@ -7,7 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import butterknife.BindView;
 import com.example.revern.vkontaktetest.Navigator;
 import com.example.revern.vkontaktetest.R;
 import com.example.revern.vkontaktetest.news_feed.models.post.Post;
@@ -19,15 +19,12 @@ import com.example.revern.vkontaktetest.utils.ui.UiInfo;
 
 import java.util.List;
 
-import butterknife.BindView;
-
 public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements NewsFeedView {
 
     @BindView(R.id.swipe_refresh_layout) SwipeRefreshLayout uiSwipeRefresh;
     @BindView(R.id.posts_rcv)            RecyclerView       uiPosts;
 
     private PostsAdapter adapter;
-    private boolean      isLoading;
 
     @NonNull @Override public UiInfo createUserInfo() {
         return new UiInfo(R.layout.activity_news_feed)
@@ -84,18 +81,11 @@ public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements
         uiPosts.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-
-                if (dy > 0 && !isLoading &&
-                    linearLayoutManager.findFirstVisibleItemPosition() + 20 > adapter.getItemCount()) {
-                    isLoading = true;
-                    presenter.loadMoreNews();
+                if (dy > 0 /*scroll down*/) {
+                    presenter.tryPaginate(linearLayoutManager.findFirstVisibleItemPosition());
                 }
             }
         });
-    }
-
-    @Override public void showError(Throwable error) {
-        //TODO show error dialog
     }
 
     @Override
@@ -105,7 +95,6 @@ public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements
     }
 
     @Override public void addNews(@NonNull List<Post> posts) {
-        isLoading = false;
         adapter.addItems(posts);
     }
 
