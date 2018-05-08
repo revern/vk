@@ -3,7 +3,7 @@ ext {
             BUILD_TOOLS : '27.0.3',
             MIN_SDK     : 16,
             TARGET_SDK  : 27,
-            SUPPORT     : '27.0.2',
+            SUPPORT     : '27.1.1',
             OK_HTTP     : '3.4.1',
             RETROFIT    : '2.3.0',
             DAGGER      : '2.5',
