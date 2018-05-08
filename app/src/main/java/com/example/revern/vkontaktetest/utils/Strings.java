@@ -5,10 +5,6 @@ import android.support.annotation.Nullable;
 
 import java.util.Collection;
 
-/**
- * Created by Revern on 24.07.2017.
- */
-
 public class Strings {
 
     public static boolean isEmpty(@Nullable String string) {

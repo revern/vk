@@ -21,10 +21,6 @@ import java.util.List;
 
 import butterknife.BindView;
 
-/**
- * Created by Revern on 17.08.2017.
- */
-
 public class NewsFeedActivity extends BaseActivity<NewsFeedPresenter> implements NewsFeedView {
 
     @BindView(R.id.swipe_refresh_layout) SwipeRefreshLayout uiSwipeRefresh;

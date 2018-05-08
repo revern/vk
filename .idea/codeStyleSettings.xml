@@ -33,8 +33,29 @@
         <option name="RIGHT_MARGIN" value="100" />
         <AndroidXmlCodeStyleSettings>
           <option name="USE_CUSTOM_SETTINGS" value="true" />
+          <option name="LAYOUT_SETTINGS">
+            <value>
+              <option name="INSERT_LINE_BREAK_AFTER_LAST_ATTRIBUTE" value="true" />
+            </value>
+          </option>
+          <option name="MANIFEST_SETTINGS">
+            <value>
+              <option name="INSERT_LINE_BREAK_AFTER_LAST_ATTRIBUTE" value="true" />
+            </value>
+          </option>
+          <option name="OTHER_SETTINGS">
+            <value>
+              <option name="INSERT_LINE_BREAK_AFTER_LAST_ATTRIBUTE" value="true" />
+            </value>
+          </option>
         </AndroidXmlCodeStyleSettings>
+        <MarkdownNavigatorCodeStyleSettings>
+          <option name="RIGHT_MARGIN" value="72" />
+        </MarkdownNavigatorCodeStyleSettings>
         <Objective-C-extensions>
+          <option name="GENERATE_INSTANCE_VARIABLES_FOR_PROPERTIES" value="ASK" />
+          <option name="RELEASE_STYLE" value="IVAR" />
+          <option name="TYPE_QUALIFIERS_PLACEMENT" value="BEFORE" />
           <file>
             <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="Import" />
             <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="Macro" />
@@ -60,10 +81,13 @@
           </extensions>
         </Objective-C-extensions>
         <XML>
-          <option name="XML_KEEP_LINE_BREAKS" value="false" />
-          <option name="XML_ALIGN_ATTRIBUTES" value="false" />
-          <option name="XML_SPACE_INSIDE_EMPTY_TAG" value="true" />
+          <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
         </XML>
+        <codeStyleSettings language="JAVA">
+          <option name="METHOD_ANNOTATION_WRAP" value="1" />
+          <option name="CLASS_ANNOTATION_WRAP" value="1" />
+          <option name="FIELD_ANNOTATION_WRAP" value="1" />
+        </codeStyleSettings>
         <codeStyleSettings language="XML">
           <option name="FORCE_REARRANGE_MODE" value="1" />
           <indentOptions>
@@ -223,6 +247,6 @@
         </codeStyleSettings>
       </value>
     </option>
-    <option name="PREFERRED_PROJECT_CODE_STYLE" value="hospital-code-style" />
+    <option name="USE_PER_PROJECT_SETTINGS" value="true" />
   </component>
 </project>

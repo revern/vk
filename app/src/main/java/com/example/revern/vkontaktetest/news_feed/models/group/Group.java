@@ -6,10 +6,6 @@ import com.example.revern.vkontaktetest.news_feed.models.Poster;
 import com.example.revern.vkontaktetest.news_feed.models.base.BoolInt;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Revern on 20.08.2017.
- */
-
 public class Group extends Poster {
 
     @SerializedName("name") private      String        name;

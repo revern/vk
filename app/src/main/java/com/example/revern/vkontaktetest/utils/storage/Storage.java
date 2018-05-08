@@ -9,10 +9,6 @@ import com.google.gson.Gson;
 import java.lang.reflect.Type;
 import java.util.List;
 
-/**
- * Created by Revern on 27.07.2017.
- */
-
 public class Storage implements IStorage {
 
     @NonNull private final SharedPreferences sp;

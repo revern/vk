@@ -12,10 +12,6 @@ import java.util.List;
 
 import io.reactivex.functions.Function;
 
-/**
- * Created by Revern on 23.08.2017.
- */
-
 public class PostsAdapter extends BaseAdapter<Post, PostHolder> {
 
     public PostsAdapter(@NonNull List<Post> items,
@@ -28,4 +24,5 @@ public class PostsAdapter extends BaseAdapter<Post, PostHolder> {
 
         return super.onCreateViewHolder(parent, viewType);
     }
+
 }

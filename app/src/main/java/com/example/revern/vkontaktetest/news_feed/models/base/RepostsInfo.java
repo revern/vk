@@ -2,10 +2,6 @@ package com.example.revern.vkontaktetest.news_feed.models.base;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Revern on 18.08.2017.
- */
-
 public class RepostsInfo {
 
     @SerializedName("count") private         int     count;
@@ -18,4 +14,5 @@ public class RepostsInfo {
     public BoolInt getUserReposted() {
         return userReposted;
     }
+
 }

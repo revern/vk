@@ -10,10 +10,6 @@ import com.example.revern.vkontaktetest.utils.di.NetModule;
 import com.example.revern.vkontaktetest.utils.di.SessionComponent;
 import com.example.revern.vkontaktetest.utils.di.SessionModule;
 
-/**
- * Created by Revern on 27.07.2017.
- */
-
 public class App extends Application {
 
     private AppComponent     appComponent;

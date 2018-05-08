@@ -4,10 +4,6 @@ import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Revern on 20.09.2017.
- */
-
 public abstract class Poster {
 
     @SerializedName("id") protected          int    id;

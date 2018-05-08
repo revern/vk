@@ -5,10 +5,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/**
- * Created by Revern on 18.08.2017.
- */
-
 public class Wallpost {
 
     @SerializedName("id") private          int                      id;

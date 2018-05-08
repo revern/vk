@@ -17,10 +17,6 @@ import android.view.Window;
 
 import butterknife.ButterKnife;
 
-/**
- * Created by Revern on 24.07.2017.
- */
-
 public abstract class BaseDialogFragment extends DialogFragment {
 
     @LayoutRes public abstract int getLayoutRes();

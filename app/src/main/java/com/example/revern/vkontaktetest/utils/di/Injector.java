@@ -7,10 +7,6 @@ import com.example.revern.vkontaktetest.App;
 import com.example.revern.vkontaktetest.login.LoginActivity;
 import com.example.revern.vkontaktetest.news_feed.NewsFeedActivity;
 
-/**
- * Created by Revern on 27.07.2017.
- */
-
 public class Injector {
 
     private static AppComponent getAppComponent(@NonNull FragmentActivity initialScreen) {

@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply from: 'checkstyle/checkstyle.gradle'
 apply from: '../deps.gradle'
 
 android {
@@ -56,7 +57,7 @@ dependencies {
     debugImplementation stethoLibs
 
     implementation 'com.google.code.gson:gson:2.8.2'
-    implementation 'com.github.bumptech.glide:glide:4.0.0-RC1'
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
 
     //ButterKnife
     implementation "com.jakewharton:butterknife:$versions.BUTTER_KNIFE"
@@ -67,8 +68,8 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:$versions.DAGGER"
 
 //    androidTestCompile 'com.android.support:support-annotations:'
-    testImplementation 'com.android.support.test:runner:1.0.1'
-    testImplementation 'com.android.support.test:rules:1.0.1'
+    testImplementation 'com.android.support.test:runner:1.0.2'
+    testImplementation 'com.android.support.test:rules:1.0.2'
     testImplementation 'org.mockito:mockito-core:2.15.0'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }

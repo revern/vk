@@ -17,10 +17,6 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by Revern on 24.07.2017.
- */
-
 public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity
     implements BaseView {
 

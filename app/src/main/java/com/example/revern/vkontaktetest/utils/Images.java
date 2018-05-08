@@ -1,27 +1,15 @@
 package com.example.revern.vkontaktetest.utils;
 
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.target.Target;
-import com.bumptech.glide.request.transition.Transition;
 import com.example.revern.vkontaktetest.R;
 import com.example.revern.vkontaktetest.news_feed.models.post.WallpostAttachment;
 import com.example.revern.vkontaktetest.news_feed.models.post.WallpostAttachmentType;
 
 import java.util.List;
-
-/**
- * Created by Revern on 20.09.2017.
- */
 
 public class Images {
 

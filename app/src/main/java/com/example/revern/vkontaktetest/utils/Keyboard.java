@@ -6,10 +6,6 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-/**
- * Created by Revern on 25.07.2017.
- */
-
 public class Keyboard {
 
     public static void hide(@NonNull Activity activity) {

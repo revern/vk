@@ -7,10 +7,6 @@ import com.example.revern.vkontaktetest.utils.Uris;
 import com.example.revern.vkontaktetest.utils.network.TokenHolder;
 import com.example.revern.vkontaktetest.utils.ui.BasePresenter;
 
-/**
- * Created by Revern on 15.08.2017.
- */
-
 public class LoginPresenter extends BasePresenter<LoginView> {
 
     private static final String PARAM_USER_ID      = "user_id";

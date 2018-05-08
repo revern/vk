@@ -26,10 +26,6 @@ import java.util.List;
 import butterknife.BindView;
 import io.reactivex.functions.Function;
 
-/**
- * Created by Revern on 23.08.2017.
- */
-
 public class PostHolder extends BaseHolder<Post> {
 
     @NonNull private List<User>  users;

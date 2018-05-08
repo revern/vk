@@ -2,10 +2,6 @@ package com.example.revern.vkontaktetest.news_feed.models.user;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Revern on 20.08.2017.
- */
-
 public enum Sex {
 
     @SerializedName("1")FEMALE(1),

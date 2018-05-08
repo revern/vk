@@ -6,10 +6,6 @@ import android.support.annotation.Nullable;
 import java.lang.reflect.Type;
 import java.util.List;
 
-/**
- * Created by Revern on 27.07.2017.
- */
-
 public interface IStorage {
 
     @Nullable <T> T get(@NonNull String key, @NonNull Type type);

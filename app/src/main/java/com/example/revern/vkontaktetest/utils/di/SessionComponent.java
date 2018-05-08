@@ -7,10 +7,6 @@ import javax.inject.Singleton;
 
 import dagger.Subcomponent;
 
-/**
- * Created by Revern on 27.07.2017.
- */
-
 @Singleton
 @Subcomponent(modules = {SessionModule.class})
 public interface SessionComponent {

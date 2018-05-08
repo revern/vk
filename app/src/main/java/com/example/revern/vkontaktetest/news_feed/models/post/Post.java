@@ -8,10 +8,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/**
- * Created by Revern on 18.08.2017.
- */
-
 public class Post {
 
     @SerializedName("post_id") private      int                      postId;

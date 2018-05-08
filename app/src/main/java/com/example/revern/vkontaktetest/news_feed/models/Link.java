@@ -1,18 +1,6 @@
 package com.example.revern.vkontaktetest.news_feed.models;
 
-import android.support.annotation.NonNull;
-
 import com.google.gson.annotations.SerializedName;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
-/**
- * Created by Revern on 20.08.2017.
- */
 
 public class Link {
 

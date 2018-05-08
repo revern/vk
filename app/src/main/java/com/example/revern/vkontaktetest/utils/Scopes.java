@@ -1,9 +1,5 @@
 package com.example.revern.vkontaktetest.utils;
 
-/**
- * Created by Revern on 15.08.2017.
- */
-
 public class Scopes {
 
     public static final int FRIENDS = 2;

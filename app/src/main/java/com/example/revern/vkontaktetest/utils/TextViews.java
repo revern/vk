@@ -6,10 +6,6 @@ import android.support.annotation.VisibleForTesting;
 import android.view.View;
 import android.widget.TextView;
 
-/**
- * Created by Revern on 20.09.2017.
- */
-
 public class TextViews {
 
     public static void setResponseText(@Nullable TextView textView, int number) {

@@ -5,10 +5,6 @@ import android.support.annotation.NonNull;
 import com.example.revern.vkontaktetest.utils.Strings;
 import com.example.revern.vkontaktetest.utils.storage.IStorage;
 
-/**
- * Created by Revern on 27.07.2017.
- */
-
 public class TokenHolder {
 
     private static final String KEY_ACCESS_TOKEN = "access_token";

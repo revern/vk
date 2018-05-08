@@ -7,10 +7,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/**
- * Created by Revern on 18.08.2017.
- */
-
 public class NewsFeed {
 
     @SerializedName("items") private     List<Post>  posts;
@@ -33,4 +29,5 @@ public class NewsFeed {
     public String getNextFrom() {
         return nextFrom;
     }
+
 }

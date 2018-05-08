@@ -15,10 +15,6 @@ import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
-/**
- * Created by Revern on 24.07.2017.
- */
-
 public abstract class BaseFragment<P extends BasePresenter> extends Fragment implements BaseView {
 
     @Inject protected P presenter;

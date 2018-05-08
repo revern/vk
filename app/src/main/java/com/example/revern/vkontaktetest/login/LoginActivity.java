@@ -18,11 +18,6 @@ import com.example.revern.vkontaktetest.utils.ui.UiInfo;
 
 import butterknife.BindView;
 
-
-/**
- * Created by Revern on 15.08.2017.
- */
-
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginView {
 
     private static final int SCOPES =

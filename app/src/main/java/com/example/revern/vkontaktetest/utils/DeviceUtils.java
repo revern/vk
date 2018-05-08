@@ -3,10 +3,6 @@ package com.example.revern.vkontaktetest.utils;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-/**
- * Created by Revern on 20.09.2017.
- */
-
 public class DeviceUtils {
 
     public static int getScreenWidthInPixels(@NonNull Context context) {

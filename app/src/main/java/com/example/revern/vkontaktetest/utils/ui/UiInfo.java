@@ -6,10 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 
-/**
- * Created by Revern on 24.07.2017.
- */
-
 public class UiInfo {
 
     @LayoutRes private final int     layoutRes;
@@ -61,4 +57,5 @@ public class UiInfo {
     public boolean hasBackButton() {
         return hasBackButton;
     }
+
 }

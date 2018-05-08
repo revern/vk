@@ -25,14 +25,10 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by Revern on 27.07.2017.
- */
-
 @Module
 public class NetModule {
 
-    @NonNull private String baseUrl = BuildConfig.API_BASE_URL;
+    @NonNull private String baseUrl;
 
     public NetModule(@NonNull String baseUrl) {
         this.baseUrl = baseUrl;
@@ -52,22 +48,12 @@ public class NetModule {
     @Provides @Singleton
     public OkHttpClient provideHttpClient(@NonNull TokenHolder tokenHolder,
                                           @NonNull File cachedDir) {
-        OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
-        httpClientBuilder.cache(new Cache(cachedDir, 20 * 1024 * 1024));
-        httpClientBuilder.readTimeout(30, TimeUnit.SECONDS);
+        OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder()
+            .cache(new Cache(cachedDir, 20 * 1024 * 1024))
+            .readTimeout(30, TimeUnit.SECONDS);
 
         StethoUtils.addInterceptors(httpClientBuilder);
 
-        httpClientBuilder.addInterceptor(chain -> {
-//            if (userSettings.userHasToken()) {
-//                Request request = chain.request().newBuilder()
-//                    .addHeader("X-User-Token", userSettings.getToken())
-//                    .addHeader("X-User-Phone-Number", userSettings.getPhone())
-//                    .build();
-//                return chain.proceed(request);
-//            }
-            return chain.proceed(chain.request());
-        });
         return httpClientBuilder.build();
     }
 
@@ -76,7 +62,6 @@ public class NetModule {
         return new Retrofit.Builder()
             .client(httpClient)
             .baseUrl(baseUrl)
-//            .addCallAdapterFactory(RxErrorHandlingCallAdapterFactory.create()) //for rxjava 1
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(StringConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(mapper))

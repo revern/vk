@@ -2,10 +2,6 @@ package com.example.revern.vkontaktetest.news_feed.models.group;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Revern on 20.08.2017.
- */
-
 public enum GroupIsClosed {
 
     @SerializedName("0")OPEN(0),

@@ -15,18 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-
-
-/**
- * Created by Revern on 17.08.2017.
- */
 
 public class NewsFeedPresenter extends BasePresenter<NewsFeedView> {
 
     private final UserInteractor userInteractor;
 
-    //TODO replace with NewsFeed model
+    private Disposable newsfeedDisposable;
     @NonNull private List<Post>  posts  = new ArrayList<>();
     @NonNull private List<User>  users  = new ArrayList<>();
     @NonNull private List<Group> groups = new ArrayList<>();
@@ -38,28 +34,38 @@ public class NewsFeedPresenter extends BasePresenter<NewsFeedView> {
     }
 
     public void refreshNewsFeed() {
-        userInteractor.getNewsFeed(40)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(response -> {
-                refreshLists(response.getNewsFeed());
-                if (view != null) {
-                    view.refreshNews(posts);
-                }
-            });
+        if (newsfeedDisposable == null) {
+            newsfeedDisposable = userInteractor.getNewsFeed(40)
+                .doAfterTerminate(() -> newsfeedDisposable = null)
+                .subscribe(response -> {
+                    refreshLists(response.getNewsFeed());
+                    if (view != null) {
+                        view.refreshNews(posts);
+                    }
+                }, error -> {
+                    if (view != null) {
+                        view.showError(error);
+                    }
+                });
+        }
     }
 
     public void loadMoreNews() {
-        userInteractor.getNewsFeed(20, nextFrom)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(response -> {
-                addLists(response.getNewsFeed());
-                List<Post> posts = response.getNewsFeed().getPosts();
-                if (view != null && posts != null) {
-                    view.addNews(posts);
-                }
-            });
+        if (newsfeedDisposable == null) {
+            newsfeedDisposable = userInteractor.getNewsFeed(20, nextFrom)
+                .doAfterTerminate(() -> newsfeedDisposable = null)
+                .subscribe(response -> {
+                    addLists(response.getNewsFeed());
+                    List<Post> posts = response.getNewsFeed().getPosts();
+                    if (view != null && posts != null) {
+                        view.addNews(posts);
+                    }
+                }, error -> {
+                    if (view != null) {
+                        view.showError(error);
+                    }
+                });
+        }
     }
 
     public boolean isAuthorized() {
@@ -108,4 +114,5 @@ public class NewsFeedPresenter extends BasePresenter<NewsFeedView> {
             view.showLogin();
         }
     }
+
 }

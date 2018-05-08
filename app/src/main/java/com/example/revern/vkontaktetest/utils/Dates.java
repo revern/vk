@@ -9,10 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * Created by Revern on 20.09.2017.
- */
-
 public class Dates {
 
     @NonNull public static String getFormattedDate(@NonNull Context context, long dateMillis) {

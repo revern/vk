@@ -4,15 +4,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.example.revern.vkontaktetest.news_feed.models.NewsFeedResponse;
+import com.example.revern.vkontaktetest.utils.RxUtils;
 import com.example.revern.vkontaktetest.utils.network.TokenHolder;
 import com.example.revern.vkontaktetest.utils.storage.IStorage;
 
 import io.reactivex.Flowable;
-
-
-/**
- * Created by Revern on 15.08.2017.
- */
+import io.reactivex.Single;
 
 public class UserInteractor {
 
@@ -39,15 +36,17 @@ public class UserInteractor {
         return getToken() != null;
     }
 
-    public Flowable<NewsFeedResponse> getNewsFeed(int count, @Nullable String startFrom) {
-        return api.getNewsFeed(getToken(), "post", count, startFrom, BuildConfig.API_VERSION);
+    public Single<NewsFeedResponse> getNewsFeed(int count, @Nullable String startFrom) {
+        return api.getNewsFeed(getToken(), "post", count, startFrom, BuildConfig.API_VERSION)
+            .compose(RxUtils.doInBackgroundDeliverToUI());
     }
 
-    public Flowable<NewsFeedResponse> getNewsFeed(int count) {
+    public Single<NewsFeedResponse> getNewsFeed(int count) {
         return getNewsFeed(count, null);
     }
 
     public void logout() {
         tokenHolder.clean();
     }
+
 }
